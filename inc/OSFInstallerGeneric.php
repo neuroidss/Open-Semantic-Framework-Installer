@@ -8,12 +8,21 @@
     * Install the entire OSF stack. Running this command will install the full stack on the server
     * according to the settings specified in the installer.ini file.
     */  
+    
+    /**
+    * Prepare the installation for this distro
+    */
+    public function prepareDistro()
+    {
+      $this->span("Option not supported for this Linux distribution and version.", 'error');
+    }       
+    
     /**
     * Tries to install PHP5 using the packages available for the linux distribution
     */
-    public function installPhp5()
+    public function installPhp()
     { 
-      $this->cecho("Option not supported for this Linux distribution and version.\n", 'RED');
+      $this->span("Option not supported for this Linux distribution and version.", 'error');
     }
     
     /**
@@ -21,7 +30,7 @@
     */
     public function installVirtuoso()
     {
-      $this->cecho("Option not supported for this Linux distribution and version.\n", 'RED');
+      $this->span("Option not supported for this Linux distribution and version.", 'error');
     }
     
     /**
@@ -29,23 +38,23 @@
     */
     public function installSolr()
     {
-      $this->cecho("Option not supported for this Linux distribution and version.\n", 'RED');
+      $this->span("Option not supported for this Linux distribution and version.", 'error');
     }
 
     /**
     * Install Apache2 as required by OSF
     */
-    public function installApache2()
+    public function installApache()
     {
-      $this->cecho("Option not supported for this Linux distribution and version.\n", 'RED');
+      $this->span("Option not supported for this Linux distribution and version.", 'error');
     }
 
     /**
     * Install MySQL as required by OSF
     */
-    public function installMySQL()
+    public function installSQL($mode = 'server')
     {
-      $this->cecho("Option not supported for this Linux distribution and version.\n", 'RED');
+      $this->span("Option not supported for this Linux distribution and version.", 'error');
     }
     
     /**
@@ -53,7 +62,7 @@
     */
     public function installPhpMyAdmin()
     {
-      $this->cecho("Option not supported for this Linux distribution and version.\n", 'RED');
+      $this->span("Option not supported for this Linux distribution and version.", 'RerrorED');
     }    
     
     /**
@@ -61,15 +70,15 @@
     */
     public function installMemcached()
     {
-      $this->cecho("Option not supported for this Linux distribution and version.\n", 'RED');
+      $this->span("Option not supported for this Linux distribution and version.", 'error');
     }    
     
     /**
     * Install OSF for Drupal
     */
-    public function installOSFDrupal()
+    public function install_OSF_Drupal()
     {
-      $this->cecho("Option not supported for this Linux distribution and version.\n", 'RED');
-    }    
+      $this->span("Option not supported for this Linux distribution and version.", 'error');
+    }        
   }
 ?>

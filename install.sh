@@ -41,19 +41,23 @@ echo -e "\n\n"
 cecho "\n\nInstalling requirements...\n"
 
 # Make sure that apt-get exists for this Linux distribution
-if which apt-get >/dev/null; then
+if which apt-get >/dev/null; 
+then
   apt-get -y update
   apt-get -y install php5
   apt-get -y install unzip wget
+elif which yum >/dev/null; 
+then
+  yum install -y php unzip wget
 else
   cecho "\nMake sure that PHP5, unzip, and wget packages are installed on the server.\n" yellow
 fi
 
 cecho "\n\nDownload the latest version of the OSF Installer tool...\n"
 
-wget https://github.com/structureddynamics/Open-Semantic-Framework-Installer/archive/3.3.zip
+wget https://github.com/structureddynamics/Open-Semantic-Framework-Installer/archive/3.4.zip
 
-unzip 3.3.zip
+unzip 3.4.zip
 
 cd Open-Semantic-Framework-Installer*
 
@@ -62,7 +66,7 @@ mv -f * ../
 cd ..
 
 rm -rf Open-Semantic-Framework-Installer*
-rm -f 3.3.zip
+rm -f 3.4.zip
 
 chmod 755 osf-installer
 chmod 755 upgrade.sh
